@@ -81,10 +81,28 @@ The demo at the top of the page was recorded from an Alfred workflow that calls 
 ```bash
 npm install
 npm run dev              # web
-npm run tauri dev        # macOS native
+npx tauri dev            # desktop (macOS/Windows)
 ```
 
-macOS builds are signed for Apple Silicon. Intel and Windows are not currently supported.
+macOS builds are signed for Apple Silicon and Intel. Windows builds are not currently published; build locally using the steps below (Quick Look preview is macOS-only).
+
+### Windows setup (local desktop build)
+
+**Prerequisites**
+- Node.js (LTS) + npm
+- Rust toolchain via rustup (MSVC)
+- Visual Studio 2022 Build Tools with **Desktop development with C++** + Windows 10/11 SDK
+- Microsoft Edge WebView2 Runtime (preinstalled on Windows 11; install the Evergreen runtime on Windows 10)
+
+**Steps**
+```powershell
+# from the repo root
+npm install
+npx tauri dev            # runs npm run dev automatically
+
+# release build
+npx tauri build
+```
 
 ---
 
